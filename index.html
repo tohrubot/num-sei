@@ -1,70 +1,28 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Nekōya SFW | Brokeback Mountain</title><meta
+name="description"
+content="Nekōya SFW — uma comunidade focada em interação, amizades, artes e gostos. Entre para conhecer o Vale."
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+«»
 
-  <!-- SEO -->
-  <title>Nekōya SFW | Brokeback Mountain</title>
-
-  <meta
-    name="description"
-    content="Nekōya SFW — um espaço para amizades, interação, artes, gostos e momentos especiais no Vale."
-  >
-
-  <meta
-    name="robots"
-    content="index, follow"
-  >
-
-  <meta
-    name="theme-color"
-    content="#d98a44"
-  >
-
-  <!-- COMPARTILHAMENTO -->
-  <meta
-    property="og:type"
-    content="website"
-  >
-
-  <meta
-    property="og:title"
-    content="Nekōya SFW | Brokeback Mountain"
-  >
-
+  <meta name="theme-color" content="#07090c">  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nekōya SFW | Brokeback Mountain">
   <meta
     property="og:description"
-    content="Entre no Vale da Nekōya SFW. Um espaço para amizades, interação, artes e muito mais."
+    content="Um servidor focado em interação, amizades, artes e muito mais."
   >
-
-  <meta
-    property="og:url"
-    content="https://discord.gg/jfyPjcFBfM"
-  >
-
-  <meta
-    name="twitter:card"
-    content="summary"
-  >
-
-  <meta
-    name="twitter:title"
-    content="Nekōya SFW | Brokeback Mountain"
-  >
-
+  <meta property="og:image" content="https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&q=80&w=1200">  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nekōya SFW | Brokeback Mountain">
   <meta
     name="twitter:description"
-    content="Entre no Vale da Nekōya SFW. Um espaço para amizades, interação, artes e muito mais."
-  >
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
-
+    content="Um servidor focado em interação, amizades, artes e muito mais."
+  >  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >  <style>
     :root {
       --bg-deep: #07090c;
       --bg-card: #12151c;
@@ -72,12 +30,12 @@
 
       --accent: #d98a44;
       --accent-light: #e6a86a;
-      --accent-glow: rgba(217, 138, 68, 0.30);
+      --accent-glow: rgba(217, 138, 68, 0.3);
 
       --text-main: #f0f2f5;
       --text-muted: #8b949e;
 
-      --border: rgba(255, 255, 255, 0.08);
+      --border: rgba(255,255,255,0.08);
 
       --success: #3fb950;
     }
@@ -90,34 +48,32 @@
     }
 
     html {
-      min-height: 100%;
-      background: var(--bg-deep);
+      scroll-behavior: smooth;
     }
 
     body {
+      background-color: var(--bg-deep);
+      color: var(--text-main);
+
       min-height: 100vh;
-      background:
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow-x: hidden;
+
+      background-image:
         radial-gradient(
           circle at top right,
-          rgba(217, 138, 68, 0.07),
+          rgba(217,138,68,0.05),
           transparent 40%
         ),
         radial-gradient(
           circle at bottom left,
-          rgba(21, 32, 43, 0.85),
+          rgba(21,32,43,0.8),
           transparent 50%
-        ),
-        var(--bg-deep);
-
-      color: var(--text-main);
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      padding: 20px;
-
-      overflow-x: hidden;
+        );
     }
 
     button,
@@ -125,13 +81,16 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* ========================================
-       VERIFICAÇÃO
-    ======================================== */
+
+    /* =====================================================
+       TELA DE VERIFICAÇÃO
+    ===================================================== */
 
     #captcha-screen {
       position: fixed;
       inset: 0;
+
+      z-index: 1000;
 
       display: flex;
       align-items: center;
@@ -139,35 +98,97 @@
 
       padding: 20px;
 
-      background: var(--bg-deep);
-
-      z-index: 1000;
+      background:
+        radial-gradient(
+          circle at 50% 35%,
+          rgba(217,138,68,0.10),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          #05070a 0%,
+          #090b10 50%,
+          #050609 100%
+        );
 
       transition:
-        opacity 0.6s ease,
-        transform 0.6s ease;
+        opacity 0.65s ease,
+        visibility 0.65s ease;
+    }
+
+    #captcha-screen::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          120deg,
+          transparent 0%,
+          rgba(255,255,255,0.018) 50%,
+          transparent 100%
+        );
+
+      pointer-events: none;
+    }
+
+    .captcha-wrapper {
+      position: relative;
+
+      width: min(440px, 100%);
+    }
+
+    .captcha-wrapper::before {
+      content: "";
+
+      position: absolute;
+
+      inset: -1px;
+
+      border-radius: 24px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(217,138,68,0.40),
+          transparent 30%,
+          transparent 70%,
+          rgba(217,138,68,0.15)
+        );
+
+      opacity: 0.65;
+
+      filter: blur(8px);
+
+      pointer-events: none;
     }
 
     .captcha-box {
-      width: min(430px, 100%);
+      position: relative;
 
-      background: rgba(18, 21, 28, 0.96);
+      z-index: 1;
 
-      border: 1px solid var(--border);
+      width: 100%;
 
-      border-radius: 16px;
+      padding: 28px;
 
-      padding: 24px 26px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(24,28,37,0.98),
+          rgba(13,16,22,0.98)
+        );
 
-      display: flex;
-      align-items: center;
+      border: 1px solid rgba(255,255,255,0.09);
 
-      gap: 18px;
-
-      cursor: pointer;
+      border-radius: 22px;
 
       box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.55);
+        0 30px 80px rgba(0,0,0,0.65),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+
+      cursor: pointer;
 
       transition:
         transform 0.3s ease,
@@ -176,75 +197,291 @@
     }
 
     .captcha-box:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
 
-      border-color: var(--accent);
+      border-color: rgba(217,138,68,0.45);
 
       box-shadow:
-        0 20px 50px var(--accent-glow);
+        0 35px 90px rgba(0,0,0,0.72),
+        0 0 35px rgba(217,138,68,0.10);
     }
 
     .captcha-box:active {
-      transform: scale(0.98);
+      transform: scale(0.985);
     }
 
-    .checkbox {
-      width: 30px;
-      height: 30px;
+    .captcha-box:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
 
-      flex: 0 0 30px;
+    .captcha-top {
+      display: flex;
+      align-items: center;
 
-      border: 2px solid var(--text-muted);
+      gap: 14px;
 
-      border-radius: 7px;
+      margin-bottom: 22px;
+    }
+
+    .captcha-logo {
+      width: 45px;
+      height: 45px;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      transition:
-        border-color 0.3s ease,
-        background 0.3s ease;
+      flex-shrink: 0;
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(217,138,68,0.22),
+          rgba(217,138,68,0.05)
+        );
+
+      border: 1px solid rgba(217,138,68,0.20);
+
+      box-shadow:
+        0 8px 25px rgba(217,138,68,0.08);
     }
 
-    .captcha-text {
-      font-size: 15px;
-      font-weight: 500;
+    .captcha-logo svg {
+      width: 23px;
+      height: 23px;
 
+      fill: none;
+      stroke: var(--accent);
+
+      stroke-width: 1.8;
+
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .captcha-heading {
+      display: flex;
+      flex-direction: column;
+
+      gap: 3px;
+    }
+
+    .captcha-title {
       color: var(--text-main);
 
-      line-height: 1.4;
+      font-size: 16px;
+
+      font-weight: 700;
+    }
+
+    .captcha-small {
+      color: var(--text-muted);
+
+      font-size: 12px;
+    }
+
+    .captcha-action {
+      display: flex;
+      align-items: center;
+
+      gap: 15px;
+
+      padding: 16px;
+
+      background: rgba(255,255,255,0.025);
+
+      border: 1px solid rgba(255,255,255,0.07);
+
+      border-radius: 14px;
+
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .captcha-box:hover .captcha-action {
+      background: rgba(217,138,68,0.045);
+
+      border-color: rgba(217,138,68,0.15);
+    }
+
+    .checkbox {
+      position: relative;
+
+      width: 30px;
+      height: 30px;
+
+      flex: 0 0 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: rgba(255,255,255,0.02);
+
+      border: 2px solid #69717d;
+
+      border-radius: 8px;
+
+      transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .checkbox.loading {
+      border-color: var(--accent);
+
+      box-shadow:
+        0 0 18px rgba(217,138,68,0.16);
+    }
+
+    .checkbox.success {
+      background: rgba(63,185,80,0.10);
+
+      border-color: var(--success);
+
+      box-shadow:
+        0 0 18px rgba(63,185,80,0.15);
+    }
+
+    .check-icon {
+      width: 17px;
+      height: 17px;
+
+      opacity: 0;
+
+      transform: scale(0.5);
+
+      fill: var(--success);
+
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .checkbox.success .check-icon {
+      opacity: 1;
+
+      transform: scale(1);
+    }
+
+    .captcha-message {
+      display: flex;
+      flex-direction: column;
+
+      gap: 3px;
+
+      min-width: 0;
+    }
+
+    .captcha-main-text {
+      color: var(--text-main);
+
+      font-size: 14px;
+
+      font-weight: 600;
+
+      transition: color 0.25s ease;
+    }
+
+    .captcha-status {
+      color: var(--text-muted);
+
+      font-size: 11px;
+
+      transition: color 0.25s ease;
+    }
+
+    .captcha-progress {
+      width: 100%;
+
+      height: 3px;
+
+      margin-top: 16px;
+
+      overflow: hidden;
+
+      background: rgba(255,255,255,0.05);
+
+      border-radius: 10px;
+
+      opacity: 0;
+
+      transition: opacity 0.3s ease;
+    }
+
+    .captcha-progress.active {
+      opacity: 1;
+    }
+
+    .captcha-progress-bar {
+      width: 0;
+
+      height: 100%;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--accent),
+          var(--accent-light)
+        );
+
+      border-radius: inherit;
+
+      transition: width 0.6s ease;
+    }
+
+    .captcha-footer {
+      margin-top: 15px;
+
+      text-align: center;
+
+      color: #68717c;
+
+      font-size: 10px;
+
+      letter-spacing: 0.2px;
     }
 
     .spinner {
+      width: 17px;
+      height: 17px;
+
       display: none;
 
-      width: 19px;
-      height: 19px;
-
-      border: 2px solid transparent;
+      border: 2px solid rgba(255,255,255,0.10);
 
       border-top-color: var(--accent);
-
       border-right-color: var(--accent);
 
       border-radius: 50%;
 
-      animation: spin 0.8s linear infinite;
+      animation:
+        captchaSpin 0.75s linear infinite;
     }
 
-    @keyframes spin {
+    .checkbox.loading .spinner {
+      display: block;
+    }
+
+    @keyframes captchaSpin {
       to {
         transform: rotate(360deg);
       }
     }
 
-    /* ========================================
-       APLICATIVO
-    ======================================== */
+
+    /* =====================================================
+       APLICATIVO PRINCIPAL
+    ===================================================== */
 
     #app-screen {
-      width: min(460px, 100%);
+      width: min(450px, 95%);
 
       opacity: 0;
 
@@ -255,133 +492,115 @@
       transition:
         opacity 0.8s ease,
         transform 0.8s ease;
+
+      position: relative;
     }
 
     .app-card {
-      position: relative;
-
-      overflow: hidden;
-
       background: var(--bg-card);
+
+      border-radius: 20px;
 
       border: 1px solid var(--border);
 
-      border-radius: 22px;
-
       box-shadow:
-        0 30px 70px rgba(0, 0, 0, 0.65);
+        0 25px 50px rgba(0,0,0,0.6);
+
+      overflow: hidden;
+
+      position: relative;
     }
 
     .app-header {
-      height: 170px;
-
-      position: relative;
+      height: 160px;
 
       background:
         linear-gradient(
           to bottom,
-          rgba(7, 9, 12, 0.05),
+          transparent,
           var(--bg-card)
         ),
-        url("https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&q=85&w=1000")
-        center / cover;
+        url("https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&q=80&w=800")
+        center/cover;
+
+      position: relative;
+
+      display: flex;
+
+      justify-content: flex-end;
+
+      padding: 20px;
     }
-
-    .app-header::after {
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(217, 138, 68, 0.08),
-          transparent 55%
-        );
-
-      pointer-events: none;
-    }
-
-    /* ========================================
-       MENU
-    ======================================== */
 
     .menu-container {
-      position: absolute;
-
-      top: 18px;
-      right: 18px;
-
-      z-index: 20;
+      position: relative;
     }
 
     .menu-btn {
-      width: 38px;
-      height: 38px;
+      background: rgba(0,0,0,0.5);
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.2);
 
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: white;
+
+      width: 36px;
+      height: 36px;
 
       border-radius: 50%;
 
-      background: rgba(0, 0, 0, 0.48);
+      font-size: 20px;
 
-      color: #fff;
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
 
       cursor: pointer;
 
-      font-size: 21px;
+      backdrop-filter: blur(5px);
 
-      backdrop-filter: blur(8px);
-
-      transition:
-        background 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease;
+      transition: 0.3s;
     }
 
     .menu-btn:hover {
-      background: rgba(0, 0, 0, 0.78);
+      background: rgba(0,0,0,0.8);
 
       border-color: var(--accent);
+    }
 
-      transform: rotate(90deg);
+    .menu-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
     }
 
     .dropdown {
       position: absolute;
 
-      top: 47px;
+      top: 45px;
       right: 0;
-
-      width: 205px;
-
-      overflow: hidden;
 
       background: var(--bg-card);
 
       border: 1px solid var(--border);
 
-      border-radius: 12px;
+      border-radius: 10px;
+
+      width: 200px;
 
       box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.58);
+        0 10px 25px rgba(0,0,0,0.5);
 
       opacity: 0;
 
       visibility: hidden;
 
-      transform: translateY(-8px);
+      transform: translateY(-10px);
 
-      transition:
-        opacity 0.25s ease,
-        transform 0.25s ease,
-        visibility 0.25s ease;
+      transition: all 0.3s ease;
+
+      z-index: 10;
+
+      overflow: hidden;
     }
 
     .dropdown.active {
@@ -395,28 +614,27 @@
     .dropdown button {
       width: 100%;
 
-      border: 0;
+      background: none;
 
-      background: transparent;
-
-      color: var(--text-main);
-
-      padding: 14px 16px;
+      border: none;
 
       display: flex;
+
       align-items: center;
 
-      gap: 11px;
+      gap: 12px;
+
+      padding: 14px 18px;
+
+      color: var(--text-main);
 
       text-align: left;
 
       font-size: 14px;
 
-      cursor: pointer;
+      transition: 0.2s;
 
-      transition:
-        background 0.2s ease,
-        color 0.2s ease;
+      cursor: pointer;
     }
 
     .dropdown button:hover {
@@ -429,154 +647,136 @@
       width: 18px;
       height: 18px;
 
-      fill: none;
-
       stroke: currentColor;
+
+      fill: none;
 
       stroke-width: 2;
 
       stroke-linecap: round;
       stroke-linejoin: round;
-
-      flex-shrink: 0;
     }
 
-    /* ========================================
-       CONTEÚDO
-    ======================================== */
-
     .app-body {
-      position: relative;
-
       padding: 0 30px 30px;
 
       margin-top: -30px;
+
+      position: relative;
     }
 
     .server-badge {
-      display: inline-flex;
-
-      align-items: center;
-
-      padding: 8px 15px;
-
-      margin-bottom: 14px;
+      display: inline-block;
 
       background: var(--bg-deep);
 
       border: 1px solid var(--border);
 
+      padding: 8px 16px;
+
       border-radius: 30px;
 
-      color: var(--accent);
+      font-size: 12px;
 
-      font-size: 11px;
-
-      font-weight: 600;
-
-      letter-spacing: 1.8px;
+      letter-spacing: 2px;
 
       text-transform: uppercase;
 
+      color: var(--accent);
+
+      font-weight: 600;
+
+      margin-bottom: 15px;
+
       box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.35);
+        0 5px 15px rgba(0,0,0,0.3);
     }
 
     .title {
-      margin-bottom: 8px;
-
-      font-size: 28px;
-
-      line-height: 1.15;
+      font-size: 26px;
 
       font-weight: 700;
+
+      margin-bottom: 8px;
     }
 
     .subtitle {
+      font-size: 15px;
+
+      color: var(--text-muted);
+
+      margin-bottom: 25px;
+
       display: flex;
 
       align-items: center;
 
-      gap: 9px;
-
-      margin-bottom: 24px;
-
-      color: var(--text-muted);
-
-      font-size: 14px;
+      gap: 10px;
     }
 
     .online-dot {
       width: 8px;
       height: 8px;
 
-      flex: 0 0 8px;
-
       background: var(--success);
 
       border-radius: 50%;
 
       box-shadow:
-        0 0 9px rgba(63, 185, 80, 0.85);
+        0 0 8px var(--success);
+
+      flex-shrink: 0;
     }
 
     .desc-box {
-      margin-bottom: 24px;
-
-      padding: 19px;
-
       background: var(--bg-deep);
 
+      padding: 20px;
+
+      border-radius: 12px;
+
       border: 1px solid var(--border);
-
-      border-radius: 13px;
-
-      color: var(--text-muted);
 
       font-size: 14px;
 
       line-height: 1.7;
+
+      color: var(--text-muted);
+
+      margin-bottom: 25px;
     }
 
     .desc-box strong {
       color: var(--text-main);
     }
 
-    /* ========================================
-       BOTÃO DISCORD
-    ======================================== */
-
     .btn-join {
-      width: 100%;
-
-      min-height: 54px;
-
       display: flex;
+
       align-items: center;
       justify-content: center;
 
-      padding: 15px 18px;
+      width: 100%;
+
+      padding: 16px;
 
       background: var(--accent);
 
-      color: #080808;
+      color: #000;
 
-      border: 0;
-
-      border-radius: 13px;
+      border-radius: 12px;
 
       font-size: 16px;
 
-      font-weight: 700;
+      font-weight: 600;
 
       text-decoration: none;
 
-      cursor: pointer;
+      transition: all 0.3s ease;
 
-      transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
+      border: none;
+
+      cursor: pointer;
     }
 
     .btn-join:hover {
@@ -585,21 +785,23 @@
       transform: translateY(-3px);
 
       box-shadow:
-        0 12px 25px var(--accent-glow);
+        0 10px 20px var(--accent-glow);
     }
 
-    .btn-join:active {
-      transform: translateY(0);
+    .btn-join:focus-visible {
+      outline: 2px solid var(--accent-light);
+
+      outline-offset: 3px;
     }
 
     .creator-tag {
-      margin-top: 19px;
-
       text-align: center;
 
-      color: var(--text-muted);
+      margin-top: 20px;
 
       font-size: 12px;
+
+      color: var(--text-muted);
     }
 
     .creator-tag span {
@@ -608,50 +810,52 @@
       font-weight: 600;
     }
 
-    /* ========================================
-       MODAL
-    ======================================== */
+
+    /* =====================================================
+       MODAL DE REGRAS
+    ===================================================== */
 
     #rules-modal {
       position: fixed;
 
       inset: 0;
 
-      padding: 18px;
+      background: rgba(0,0,0,0.8);
+
+      backdrop-filter: blur(8px);
 
       z-index: 2000;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
-
-      background: rgba(0, 0, 0, 0.82);
-
-      backdrop-filter: blur(9px);
 
       opacity: 0;
 
       visibility: hidden;
 
-      pointer-events: none;
+      transition: all 0.3s ease;
 
-      transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
+      padding: 20px;
     }
 
     #rules-modal.active {
       opacity: 1;
 
       visibility: visible;
-
-      pointer-events: auto;
     }
 
     .modal-content {
-      width: min(620px, 100%);
+      background: var(--bg-card);
 
-      max-height: 88vh;
+      border: 1px solid var(--border);
+
+      width: min(600px,100%);
+
+      max-height: 85vh;
+
+      border-radius: 16px;
 
       display: flex;
 
@@ -659,27 +863,22 @@
 
       overflow: hidden;
 
-      background: var(--bg-card);
-
-      border: 1px solid var(--border);
-
-      border-radius: 17px;
-
       box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.75);
+        0 25px 50px rgba(0,0,0,0.8);
 
-      transform: translateY(18px) scale(0.98);
+      transform: translateY(20px);
 
-      transition:
-        transform 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
     #rules-modal.active .modal-content {
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
     }
 
     .modal-header {
-      min-height: 67px;
+      padding: 20px 24px;
+
+      border-bottom: 1px solid var(--border);
 
       display: flex;
 
@@ -687,63 +886,43 @@
 
       justify-content: space-between;
 
-      padding: 16px 20px;
-
       background: var(--bg-deep);
-
-      border-bottom: 1px solid var(--border);
     }
 
     .modal-header h2 {
+      font-size: 18px;
+
+      color: var(--accent);
+
       display: flex;
 
       align-items: center;
 
       gap: 10px;
-
-      color: var(--accent);
-
-      font-size: 18px;
     }
 
     .close-modal {
-      width: 35px;
-      height: 35px;
+      background: none;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: transparent;
-
-      border: 1px solid transparent;
-
-      border-radius: 50%;
+      border: none;
 
       color: var(--text-muted);
 
-      font-size: 26px;
-
-      line-height: 1;
+      font-size: 24px;
 
       cursor: pointer;
 
-      transition:
-        color 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
+      transition: 0.2s;
+
+      line-height: 1;
     }
 
     .close-modal:hover {
       color: var(--text-main);
-
-      background: var(--bg-hover);
-
-      border-color: var(--border);
     }
 
     .modal-body {
-      padding: 22px;
+      padding: 24px;
 
       overflow-y: auto;
 
@@ -751,192 +930,176 @@
 
       flex-direction: column;
 
-      gap: 15px;
+      gap: 20px;
     }
 
     .rules-intro {
-      padding: 16px;
-
-      background: var(--bg-deep);
-
-      border-left: 3px solid var(--accent);
-
-      border-radius: 9px;
+      font-size: 13px;
 
       color: var(--text-muted);
 
-      font-size: 13px;
+      background: var(--bg-deep);
 
-      line-height: 1.65;
+      padding: 16px;
+
+      border-radius: 8px;
+
+      border-left: 3px solid var(--accent);
+
+      line-height: 1.6;
     }
 
     .rule-item {
-      padding: 15px 16px;
-
       background: var(--bg-deep);
 
+      padding: 14px 16px;
+
+      border-radius: 8px;
+
       border: 1px solid var(--border);
-
-      border-radius: 10px;
-
-      transition:
-        border-color 0.2s ease,
-        transform 0.2s ease;
-    }
-
-    .rule-item:hover {
-      border-color: rgba(217, 138, 68, 0.25);
-
-      transform: translateY(-1px);
     }
 
     .rule-title {
-      display: flex;
-
-      align-items: center;
-
-      gap: 8px;
-
-      margin-bottom: 6px;
+      font-weight: 600;
 
       color: var(--text-main);
 
       font-size: 14px;
 
-      font-weight: 600;
+      margin-bottom: 6px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
     }
 
     .custom-rule-icon {
       width: 14px;
       height: 14px;
 
-      flex-shrink: 0;
-
       fill: var(--accent);
+
+      flex-shrink: 0;
     }
 
     .rule-desc {
-      margin-bottom: 9px;
+      font-size: 13px;
 
       color: var(--text-muted);
 
-      font-size: 13px;
+      margin-bottom: 8px;
 
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     .rule-punish {
-      display: inline-block;
-
-      padding: 4px 8px;
-
-      background: rgba(217, 138, 68, 0.10);
-
-      border-radius: 4px;
+      font-size: 11px;
 
       color: var(--accent);
 
-      font-size: 10px;
+      background: rgba(217,138,68,0.1);
 
-      letter-spacing: 0.4px;
+      padding: 4px 8px;
+
+      border-radius: 4px;
+
+      display: inline-block;
+
+      text-transform: lowercase;
+
+      letter-spacing: 0.5px;
     }
 
-    /* ========================================
-       SCROLLBAR
-    ======================================== */
 
-    .modal-body::-webkit-scrollbar {
-      width: 7px;
-    }
-
-    .modal-body::-webkit-scrollbar-track {
-      background: var(--bg-deep);
-    }
-
-    .modal-body::-webkit-scrollbar-thumb {
-      background: rgba(217, 138, 68, 0.45);
-
-      border-radius: 20px;
-    }
-
-    /* ========================================
+    /* =====================================================
        RESPONSIVO
-    ======================================== */
+    ===================================================== */
 
-    @media (max-width: 520px) {
+    @media (max-width: 480px) {
 
-      body {
-        padding: 12px;
+      #captcha-screen {
+        padding: 15px;
       }
 
       .captcha-box {
-        padding: 20px;
+        padding: 21px;
+
+        border-radius: 19px;
       }
 
-      .app-card {
-        border-radius: 18px;
+      .captcha-top {
+        margin-bottom: 18px;
       }
 
-      .app-header {
-        height: 145px;
+      .captcha-action {
+        padding: 14px;
+      }
+
+      .captcha-title {
+        font-size: 15px;
+      }
+
+      .captcha-main-text {
+        font-size: 13px;
       }
 
       .app-body {
         padding: 0 20px 25px;
       }
 
-      .title {
-        font-size: 25px;
-      }
-
-      .desc-box {
-        padding: 16px;
-      }
-
       .modal-body {
-        padding: 16px;
+        padding: 18px;
       }
     }
-
-    @media (max-width: 360px) {
-
-      .captcha-box {
-        gap: 13px;
-        padding: 17px;
-      }
-
-      .captcha-text {
-        font-size: 13px;
-      }
-
-      .title {
-        font-size: 23px;
-      }
-
-      .subtitle {
-        font-size: 13px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- ========================================
+  </style></head><body>  <!-- =====================================================
        TELA DE VERIFICAÇÃO
-  ======================================== -->
+  ===================================================== -->  <div id="captcha-screen"><div class="captcha-wrapper">
 
-  <div id="captcha-screen">
+  <div
+    class="captcha-box"
+    id="verify-btn"
+    role="button"
+    tabindex="0"
+    aria-label="Verificar se você é humano"
+  >
 
-    <div
-      class="captcha-box"
-      id="verify-btn"
-      role="button"
-      tabindex="0"
-      aria-label="Verificar se você é humano"
-    >
+    <div class="captcha-top">
 
-      <div class="checkbox" id="checkbox-ui">
+      <div class="captcha-logo">
+
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M12 3l7 3v5c0 4.5-2.8 8-7 10-4.2-2-7-5.5-7-10V6l7-3z"></path>
+          <path d="M8.5 12l2.2 2.2 4.8-5"></path>
+        </svg>
+
+      </div>
+
+      <div class="captcha-heading">
+
+        <div class="captcha-title">
+          Verificação de segurança
+        </div>
+
+        <div class="captcha-small">
+          Proteção da Nekōya
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="captcha-action">
+
+      <div
+        class="checkbox"
+        id="checkbox-ui"
+      >
 
         <div
           class="spinner"
@@ -944,818 +1107,79 @@
         ></div>
 
         <svg
+          class="check-icon"
           id="check-icon"
           viewBox="0 0 20 20"
           aria-hidden="true"
-          style="
-            display:none;
-            width:16px;
-            height:16px;
-            fill:var(--success);
-          "
         >
           <path d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0z"/>
         </svg>
 
       </div>
 
-      <div
-        class="captcha-text"
-        id="captcha-text"
-      >
-        Verificar se você é humano
+
+      <div class="captcha-message">
+
+        <div
+          class="captcha-main-text"
+          id="captcha-text"
+        >
+          Verificar se você é humano
+        </div>
+
+        <div
+          class="captcha-status"
+          id="captcha-status"
+        >
+          Clique para continuar
+        </div>
+
       </div>
 
     </div>
 
-  </div>
 
-
-  <!-- ========================================
-       APLICATIVO PRINCIPAL
-  ======================================== -->
-
-  <main id="app-screen">
-
-    <div class="app-card">
-
-      <header class="app-header">
-
-        <div class="menu-container">
-
-          <button
-            class="menu-btn"
-            id="menu-btn"
-            type="button"
-            aria-label="Abrir menu"
-            aria-expanded="false"
-          >
-            ⋮
-          </button>
-
-          <div
-            class="dropdown"
-            id="dropdown-menu"
-          >
-
-            <button
-              id="rules-btn"
-              type="button"
-            >
-
-              <svg
-                class="menu-icon"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <rect
-                  x="4"
-                  y="4"
-                  width="16"
-                  height="16"
-                  rx="2"
-                ></rect>
-
-                <path
-                  d="M8 8h8M8 12h8M8 16h4"
-                ></path>
-              </svg>
-
-              Regras do Vale
-
-            </button>
-
-          </div>
-
-        </div>
-
-      </header>
-
-
-      <section class="app-body">
-
-        <div class="server-badge">
-          Brokeback Mountain
-        </div>
-
-        <h1 class="title">
-          Nekōya SFW
-        </h1>
-
-        <div class="subtitle">
-
-          <span class="online-dot"></span>
-
-          49 membros ao redor da fogueira
-
-        </div>
-
-        <div class="desc-box">
-
-          — Bem-vindos à <strong>Nekōya</strong>.
-          Um servidor focado em interação e amizades!
-          Entre aqui para mostrar seus gostos, artes,
-          qualidades e muito mais.
-          Estamos lhe aguardando ansiosamente. . . ♡
-
-        </div>
-
-        <a
-          href="https://discord.gg/jfyPjcFBfM"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-join"
-        >
-          Entrar no Vale
-        </a>
-
-        <div class="creator-tag">
-          Desenvolvido e criado por
-          <span>Amanda.</span>
-        </div>
-
-      </section>
-
+    <div
+      class="captcha-progress"
+      id="captcha-progress"
+    >
+      <div
+        class="captcha-progress-bar"
+        id="captcha-progress-bar"
+      ></div>
     </div>
 
-  </main>
 
+    <div class="captcha-footer">
+      Sistema automático de proteção da comunidade
+    </div>
 
-  <!-- ========================================
-       MODAL DE REGRAS
-  ======================================== -->
+  </div>
 
-  <div
-    id="rules-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="rules-title"
-  >
+</div>
 
-    <div class="modal-content">
+  </div>  <!-- =====================================================
+       APLICATIVO PRINCIPAL
+  ===================================================== -->  <div id="app-screen"><div class="app-card">
 
-      <div class="modal-header">
+  <div class="app-header">
 
-        <h2 id="rules-title">
+    <div class="menu-container">
 
-          <svg
-            class="menu-icon"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <rect
-              x="5"
-              y="3"
-              width="14"
-              height="18"
-              rx="2"
-            ></rect>
+      <button
+        class="menu-btn"
+        id="menu-btn"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+      >
+        ⋮
+      </button>
 
-            <path
-              d="M8 7h8M8 11h8M8 15h5"
-            ></path>
-          </svg>
-
-          Regras do Vale
-
-        </h2>
+      <div
+        class="dropdown"
+        id="dropdown-menu"
+      >
 
         <button
-          class="close-modal"
-          id="close-rules-btn"
-          type="button"
-          aria-label="Fechar regras"
-        >
-          &times;
-        </button>
-
-      </div>
-
-
-      <div class="modal-body">
-
-        <div class="rules-intro">
-
-          A parte mais importante dentro de um servidor são as regras.
-          Elas servem para manter tudo em ordem e, consequentemente,
-          um ambiente confortável para as pessoas dentro do servidor.
-          Abaixo estão listadas as diretrizes da nossa comunidade.
-
-        </div>
-
-
-        <!-- REGRA 1 -->
-
-        <div class="rule-item">
-
-          <div class="rule-title">
-
-            <svg
-              class="custom-rule-icon"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/>
-            </svg>
-
-            respeito
-
-          </div>
-
-          <div class="rule-desc">
-            Trate todos com educação, sem xingamentos,
-            preconceitos ou desrespeito.
-          </div>
-
-          <div class="rule-punish">
-            punição: advertência ﹒ mute ﹒ ban
-          </div>
-
-        </div>
-
-
-        <!-- REGRA 2 -->
-
-        <div class="rule-item">
-
-          <div class="rule-title">
-
-            <svg class="custom-rule-icon" viewBox="0 0 24 24">
-              <polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/>
-            </svg>
-
-            inconveniência
-
-          </div>
-
-          <div class="rule-desc">
-            Evite comportamentos que atrapalhem ou incomodem
-            os outros membros sem necessidade.
-          </div>
-
-          <div class="rule-punish">
-            punição: advertência ﹒ mute
-          </div>
-
-        </div>
-
-
-        <!-- REGRA 3 -->
-
-        <div class="rule-item">
-
-          <div class="rule-title">
-
-            <svg class="custom-rule-icon" viewBox="0 0 24 24">
-              <polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/>
-            </svg>
-
-            perseguição
-
-          </div>
-
-          <div class="rule-desc">
-            Não persiga, siga e incomode algum membro
-            de forma repetida e desconfortável.
-          </div>
-
-          <div class="rule-punish">
-            punição: mute ﹒ ban
-          </div>
-
-        </div>
-
-
-        <!-- REGRA 4 -->
-
-        <div class="rule-item">
-
-          <div class="rule-title">
-
-            <svg class="custom-rule-icon" viewBox="0 0 24 24">
-              <polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/>
-            </svg>
-
-            spam / flood
-
-          </div>
-
-          <div class="rule-desc">
-            Não envie mensagens repetidas, excessivas ou sem
-            sentido que poluam o chat.
-          </div>
-
-          <div class="rule-punish">
-            punição: mute ﹒ kick ﹒ ban
-          </div>
-
-        </div>
-
-
-        <!-- REGRA 5 -->
-
-        <div class="rule-item">
-
-          <div class="rule-title">
-
-            <svg class="custom-rule-icon" viewBox="0 0 24 24">
-              <polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/>
-            </svg>
-
-            conflitos
-
-          </div>
-
-          <div class="rule-desc">
-            Evite brigas, discussões pesadas ou discussões
-            que gerem clima ruim no servidor.
-          </div>
-
-          <div class="rule-punish">
-            punição: advertência ﹒ mute ﹒ kick
-          </div>
-
-        </div>
-
-
-        <!-- REGRA 6 -->
-
-        <div class="rule-item">
-
-          <div class="rule-title">
-
-            <svg class="custom-rule-icon" viewBox="0 0 24 24">
-              <polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/>
-            </svg>
-
-            conteúdos impróprios
-
-          </div>
-
-          <div class="rule-desc">
-            Não poste coisas nsfw, violentas, ilegais ou
-            inadequadas para o servidor.
-          </div>
-
-          <div class="rule-punish">
-            punição: ban
-          </div>
-
-        </div>
-
-
-        <!-- REGRA 7 -->
-
-        <div class="rule-item">
-
-          <div class="rule-title">
-
-            <svg class="custom-rule-icon" viewBox="0 0 24 24">
-              <polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/>
-            </svg>
-
-            divulgação
-
-          </div>
-
-          <div class="rule-desc">
-            Não faça divulgação de outros servidores, links
-            ou outras coisas sem permissão. Caso queira,
-            faça uma parceria, compre um plano ou use o canal próprio.
-          </div>
-
-          <div class="rule-punish">
-            punição: advertência ﹒ mute ﹒ ban
-          </div>
-
-        </div>
-
-
-        <!-- REGRA 8 -->
-
-        <div class="rule-item">
-
-          <div class="rule-title">
-
-            <svg class="custom-rule-icon" viewBox="0 0 24 24">
-              <polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/>
-            </svg>
-
-            privacidade
-
-          </div>
-
-          <div class="rule-desc">
-            Não compartilhe dados pessoais seus ou de outras
-            pessoas sem autorização ou consentimento.
-          </div>
-
-          <div class="rule-punish">
-            punição: mute ﹒ ban
-          </div>
-
-        </div>
-
-
-        <!-- REGRA 9 -->
-
-        <div class="rule-item">
-
-          <div class="rule-title">
-
-            <svg class="custom-rule-icon" viewBox="0 0 24 24">
-              <polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/>
-            </svg>
-
-            off topic
-
-          </div>
-
-          <div class="rule-desc">
-            Evite assuntos que não tenham relação com
-            o tema do canal.
-          </div>
-
-          <div class="rule-punish">
-            punição: advertência ﹒ mute
-          </div>
-
-        </div>
-
-
-        <!-- REGRA 10 -->
-
-        <div class="rule-item">
-
-          <div class="rule-title">
-
-            <svg class="custom-rule-icon" viewBox="0 0 24 24">
-              <polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/>
-            </svg>
-
-            burlar punições
-
-          </div>
-
-          <div class="rule-desc">
-            Não tente contornar bans, mutes ou outras
-            punições aplicadas pela staff.
-          </div>
-
-          <div class="rule-punish">
-            punição: ban
-          </div>
-
-        </div>
-
-
-        <!-- REGRA 11 -->
-
-        <div class="rule-item">
-
-          <div class="rule-title">
-
-            <svg class="custom-rule-icon" viewBox="0 0 24 24">
-              <polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/>
-            </svg>
-
-            termos do discord (tos)
-
-          </div>
-
-          <div class="rule-desc">
-            É de extrema importância que todos sigam
-            as regras oficiais do Discord.
-          </div>
-
-          <div class="rule-punish">
-            punição: ban
-          </div>
-
-        </div>
-
-
-        <!-- REGRA 12 -->
-
-        <div class="rule-item">
-
-          <div class="rule-title">
-
-            <svg class="custom-rule-icon" viewBox="0 0 24 24">
-              <polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2"/>
-            </svg>
-
-            perfis e usuários
-
-          </div>
-
-          <div class="rule-desc">
-            Não crie contas falsas se passando por outras
-            pessoas ou use nomes/icons inadequados.
-          </div>
-
-          <div class="rule-punish">
-            punição: advertência ﹒ ban
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <script>
-    "use strict";
-
-    /* ========================================
-       ELEMENTOS
-    ======================================== */
-
-    const captchaScreen =
-      document.getElementById("captcha-screen");
-
-    const verifyBtn =
-      document.getElementById("verify-btn");
-
-    const checkbox =
-      document.getElementById("checkbox-ui");
-
-    const spinner =
-      document.getElementById("spinner-ui");
-
-    const checkIcon =
-      document.getElementById("check-icon");
-
-    const captchaText =
-      document.getElementById("captcha-text");
-
-    const appScreen =
-      document.getElementById("app-screen");
-
-    const menuBtn =
-      document.getElementById("menu-btn");
-
-    const dropdownMenu =
-      document.getElementById("dropdown-menu");
-
-    const menuContainer =
-      document.querySelector(".menu-container");
-
-    const rulesBtn =
-      document.getElementById("rules-btn");
-
-    const rulesModal =
-      document.getElementById("rules-modal");
-
-    const closeRulesBtn =
-      document.getElementById("close-rules-btn");
-
-
-    /* ========================================
-       VERIFICAÇÃO
-    ======================================== */
-
-    let verificationStarted = false;
-
-    function startVerification() {
-
-      if (verificationStarted) {
-        return;
-      }
-
-      verificationStarted = true;
-
-      verifyBtn.style.pointerEvents = "none";
-
-      checkbox.style.borderColor = "transparent";
-
-      spinner.style.display = "block";
-
-      captchaText.textContent =
-        "Verificando segurança...";
-
-
-      setTimeout(function () {
-
-        spinner.style.display = "none";
-
-        checkbox.style.borderColor =
-          "var(--success)";
-
-        checkIcon.style.display =
-          "block";
-
-        captchaText.textContent =
-          "Verificação concluída!";
-
-        captchaText.style.color =
-          "var(--success)";
-
-
-        setTimeout(function () {
-
-          captchaScreen.style.opacity = "0";
-
-          captchaScreen.style.transform =
-            "scale(1.05)";
-
-
-          setTimeout(function () {
-
-            captchaScreen.style.display =
-              "none";
-
-            appScreen.style.opacity = "1";
-
-            appScreen.style.transform =
-              "scale(1)";
-
-            appScreen.style.pointerEvents =
-              "auto";
-
-          }, 600);
-
-        }, 600);
-
-      }, 1200);
-    }
-
-
-    /* ========================================
-       EVENTO DE VERIFICAÇÃO
-    ======================================== */
-
-    verifyBtn.addEventListener(
-      "click",
-      startVerification
-    );
-
-
-    verifyBtn.addEventListener(
-      "keydown",
-      function (event) {
-
-        if (
-          event.key === "Enter" ||
-          event.key === " "
-        ) {
-
-          event.preventDefault();
-
-          startVerification();
-        }
-
-      }
-    );
-
-
-    /* ========================================
-       MENU
-    ======================================== */
-
-    function toggleMenu() {
-
-      const isOpen =
-        dropdownMenu.classList.toggle("active");
-
-      menuBtn.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-    }
-
-
-    menuBtn.addEventListener(
-      "click",
-      function () {
-
-        toggleMenu();
-
-      }
-    );
-
-
-    /* ========================================
-       FECHAR MENU AO CLICAR FORA
-    ======================================== */
-
-    document.addEventListener(
-      "click",
-      function (event) {
-
-        if (
-          menuContainer &&
-          event.target instanceof Node &&
-          !menuContainer.contains(event.target)
-        ) {
-
-          dropdownMenu.classList.remove("active");
-
-          menuBtn.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-        }
-
-      }
-    );
-
-
-    /* ========================================
-       ABRIR REGRAS
-    ======================================== */
-
-    function openRules() {
-
-      rulesModal.classList.add("active");
-
-      dropdownMenu.classList.remove(
-        "active"
-      );
-
-      menuBtn.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      document.body.style.overflow =
-        "hidden";
-    }
-
-
-    /* ========================================
-       FECHAR REGRAS
-    ======================================== */
-
-    function closeRules() {
-
-      rulesModal.classList.remove("active");
-
-      document.body.style.overflow =
-        "";
-    }
-
-
-    rulesBtn.addEventListener(
-      "click",
-      openRules
-    );
-
-
-    closeRulesBtn.addEventListener(
-      "click",
-      closeRules
-    );
-
-
-    /* ========================================
-       FECHAR CLICANDO FORA DO MODAL
-    ======================================== */
-
-    rulesModal.addEventListener(
-      "click",
-      function (event) {
-
-        if (event.target === rulesModal) {
-
-          closeRules();
-
-        }
-
-      }
-    );
-
-
-    /* ========================================
-       ESC FECHA TUDO
-    ======================================== */
-
-    document.addEventListener(
-      "keydown",
-      function (event) {
-
-        if (event.key === "Escape") {
-
-          closeRules();
-
-          dropdownMenu.classList.remove(
-            "active"
-          );
-
-          menuBtn.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-        }
-
-      }
-    );
-  </script>
-
-</body>
-</html>
+          id="ru
